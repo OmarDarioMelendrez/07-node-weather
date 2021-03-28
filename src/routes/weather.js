@@ -1,10 +1,13 @@
 const { Router } = require('express');
 const {
-    cities
+    weatherByCoordinates,
+    weatherByCityId
+
 } = require('../controllers/weather');
 
 const router = Router();
 
-router.get('/cities/:city', cities);
+router.get('/weather', weatherByCoordinates);
+router.get('/weather/:city/:id', weatherByCityId);
 
 module.exports = router;

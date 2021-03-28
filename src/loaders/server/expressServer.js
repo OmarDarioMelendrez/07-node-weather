@@ -10,7 +10,7 @@ class ExpressServer {
 
         this.app = express();
         this.port = config.port;
-        this.basePathUser = `${config.api.prefix}/weather`;
+        this.basePathUser = `${config.api.prefix}`;
 
         this._middlewares();
         
@@ -35,6 +35,8 @@ class ExpressServer {
         });
 
         this.app.use(this.basePathUser, require('../../routes/weather'));
+
+        this.app.use(this.basePathUser, require('../../routes/cities'));
     }
 
     _notFound() {
